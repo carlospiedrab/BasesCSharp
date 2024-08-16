@@ -30,7 +30,7 @@ namespace Models
                 return $"{Nombres} {Apellidos}";
             }
         }
-        public string Direccion { get; set; }
+        public Direccion Direccion { get; set; }
         public string Telefono { get; set; }
     }
 

@@ -121,5 +121,10 @@ Persona persona = new Persona()
     Apellidos = "Piedra Bonilla",
     Genero = Genero.Masculino,
 };
+persona.Direccion.Numero = "125";
+persona.Direccion.NombreCalle = "El Oro";
+persona.Direccion.Ciudad= "Guayaquil";
+persona.Direccion.Provincia = "Guayas";
+persona.Direccion.Pais = "Ecuador";
 
 Console.WriteLine($"La Persona: {persona.NombreCompleto} de genero {persona.Genero}");
