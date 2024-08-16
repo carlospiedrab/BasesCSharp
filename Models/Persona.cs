@@ -30,6 +30,8 @@ namespace Models
                 return $"{Nombres} {Apellidos}";
             }
         }
+        public string Direccion { get; set; }
+        public string Telefono { get; set; }
     }
 
     public enum Genero
