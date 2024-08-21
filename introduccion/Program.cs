@@ -197,4 +197,5 @@ foreach (var item in listapersonas)
     Console.WriteLine("------------------------");
     Console.WriteLine($"Persona # :    {item.Id}");
     Console.WriteLine($"Nombres   :    {item.NombreCompleto}");
+    Console.WriteLine($"Direccion :    {item.Direccion.DireccionCompleta}");
 }
