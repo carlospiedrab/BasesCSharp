@@ -12,5 +12,13 @@ namespace Models
         public string Ciudad { get; set; }
         public string Provincia { get; set; }
         public string Pais { get; set; }
+
+        public string DireccionCompleta
+        {
+            get
+            {
+               return $"{Numero} {NombreCalle}, {Ciudad} , {Pais}";     
+            }
+        }
     }
 }
