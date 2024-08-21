@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using Data;
 using Models;
 
 int x = 12;
@@ -56,15 +57,15 @@ Console.WriteLine($"Punto 2 : {p2.x} {p2.y}");
 // personas[3] = "Julio";
 // personas[4] = "Manuel";
 
-string[] personas = new string[] { "Carlos", "Ricardo", "Enrique", "Julio", "Manuel" };
+// string[] personas = new string[] { "Carlos", "Ricardo", "Enrique", "Julio", "Manuel" };
 
-for (int i = 0; i < personas.Length; i++)
-    Console.WriteLine("nombre:" + personas[i]);
+// for (int i = 0; i < personas.Length; i++)
+//     Console.WriteLine("nombre:" + personas[i]);
 
-char letra;
-string resultado;
-Console.WriteLine("Ingrese una letra:");
-letra = Convert.ToChar(Console.ReadLine());
+// char letra;
+// string resultado;
+// Console.WriteLine("Ingrese una letra:");
+// letra = Convert.ToChar(Console.ReadLine());
 
 // switch (Char.ToLower(letra))
 // {
@@ -102,17 +103,17 @@ letra = Convert.ToChar(Console.ReadLine());
 //        break;
 // }
 
-resultado = letra switch
-{
-    'a' => "La letra es una vocal",
-    'e' => "La letra es una vocal",
-    'i' => "La letra es una vocal",
-    'o' => "La letra es una vocal",
-    'u' => "La letra es una vocal",
-    _ => "La letra NO es una vocal"
-};
+// resultado = letra switch
+// {
+//     'a' => "La letra es una vocal",
+//     'e' => "La letra es una vocal",
+//     'i' => "La letra es una vocal",
+//     'o' => "La letra es una vocal",
+//     'u' => "La letra es una vocal",
+//     _ => "La letra NO es una vocal"
+// };
 
-Console.WriteLine(resultado);
+// Console.WriteLine(resultado);
 
 Persona persona = new Persona()
 {
@@ -120,11 +121,74 @@ Persona persona = new Persona()
     Nombres = "Carlos Ricardo",
     Apellidos = "Piedra Bonilla",
     Genero = Genero.Masculino,
+    Direccion = new Direccion()
+    {
+        Numero = "258",
+        NombreCalle = "El Oro",
+        Ciudad = "Guayaquil",
+        Pais = "Ecuador"
+    }
 };
-persona.Direccion.Numero = "125";
-persona.Direccion.NombreCalle = "El Oro";
-persona.Direccion.Ciudad= "Guayaquil";
-persona.Direccion.Provincia = "Guayas";
-persona.Direccion.Pais = "Ecuador";
 
-Console.WriteLine($"La Persona: {persona.NombreCompleto} de genero {persona.Genero}");
+Console.WriteLine($"La Persona: {persona.NombreCompleto} de genero {persona.Genero} en {persona.Direccion.Numero}");
+
+// Delegates
+TestDelegate test = new TestDelegate();
+Calcular c1 = new Calcular(test.Sumar);
+Calcular c2 = new Calcular(test.Multiplicar);
+
+c1(2, 2);
+Console.WriteLine($"C1 es igual a : {test.num}");
+c2(2, 3);
+Console.WriteLine($"C2 es igual a : {test.num}");
+
+// Func Delegates
+Func<int, int, int> sumaFunc = (a, b) => a + b;
+
+int result = sumaFunc(3, 4);
+Console.WriteLine($"Resultado es igual a: {result}");
+
+// Action Delegates
+Action<string> saludoAction = nombre => Console.WriteLine($"Hola, {nombre}");
+saludoAction("Carlos");
+
+// Generics
+
+Persona persona1 = new Persona()
+{
+    Id = 1,
+    Nombres = "Carlos Ricardo",
+    Apellidos = "Piedra Bonilla",
+    Genero = Genero.Masculino,
+    Direccion = new Direccion()
+    {
+        Numero = "258",
+        NombreCalle = "El Oro",
+        Ciudad = "Guayaquil",
+        Pais = "Ecuador"
+    }
+};
+
+Persona persona2 = new Persona()
+{
+    Id = 2,
+    Nombres = "Roberto",
+    Apellidos = "Piedra",
+    Genero = Genero.Masculino,
+    Direccion = new Direccion()
+    {
+        Numero = "268",
+        NombreCalle = "Febres Cordero",
+        Ciudad = "Guayaquil",
+        Pais = "Ecuador"
+    }
+};
+
+ImplementarPersona ip = new ImplementarPersona();
+ip.Agregar(persona1);
+ip.Agregar(persona2);
+Console.WriteLine($"La cantidad de Personas ingresadas es: {ip.Total()}");
+Persona personaPorId = ip.Obtener(1);
+Console.WriteLine($"La Persona de Id 1 es: {personaPorId.NombreCompleto}");
+
+
