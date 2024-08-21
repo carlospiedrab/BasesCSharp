@@ -191,4 +191,10 @@ Console.WriteLine($"La cantidad de Personas ingresadas es: {ip.Total()}");
 Persona personaPorId = ip.Obtener(1);
 Console.WriteLine($"La Persona de Id 1 es: {personaPorId.NombreCompleto}");
 
-
+var listapersonas = ip.ObtenerTodos();
+foreach (var item in listapersonas)
+{
+    Console.WriteLine("------------------------");
+    Console.WriteLine($"Persona # :    {item.Id}");
+    Console.WriteLine($"Nombres   :    {item.NombreCompleto}");
+}

@@ -11,5 +11,7 @@ namespace Data.Interfaces
         void Agregar(T modelo);
 
         public int Total();
+
+        IEnumerable<T> ObtenerTodos();
     }
 }

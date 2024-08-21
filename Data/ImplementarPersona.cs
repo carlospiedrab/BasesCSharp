@@ -14,7 +14,7 @@ namespace Data
 
         public void Agregar(Persona modelo)
         {
-           personas.Add(modelo);
+            personas.Add(modelo);
         }
 
         public Persona Obtener(int index)
@@ -22,9 +22,16 @@ namespace Data
             return personas.Find(x => x.Id == index);
         }
 
+
         public int Total()
         {
             return personas.Count;
         }
+
+        public IEnumerable<Persona> ObtenerTodos()
+        {
+            return personas.ToList();
+        }
+
     }
 }
