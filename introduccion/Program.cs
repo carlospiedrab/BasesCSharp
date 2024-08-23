@@ -199,3 +199,26 @@ foreach (var item in listapersonas)
     Console.WriteLine($"Nombres   :    {item.NombreCompleto}");
     Console.WriteLine($"Direccion :    {item.Direccion.DireccionCompleta}");
 }
+
+Empleado empleado = new Empleado()
+{
+    Id = 3,
+    Apellidos = "Toledo",
+    Nombres = "Sara",
+    Direccion = new Direccion()
+    {
+        Numero = "29",
+        NombreCalle = "Gomez Rendon",
+        Ciudad = "Guayaquil",
+        Pais = "Ecuador"
+    },
+    NumeroEmpleado = Guid.NewGuid(),
+    Salario = 2000,
+    FechaIngreso = new DateOnly(2020, 1, 10)
+};
+
+Console.WriteLine($"Empleado #:   {empleado.NumeroEmpleado}");
+Console.WriteLine($"Nombres   :   {empleado.NombreCompleto}");
+Console.WriteLine($"Direccion :   {empleado.Direccion.DireccionCompleta}");
+
+Console.WriteLine($"Años de Antiguedad :   {empleado.Antiguedad}");
